@@ -110,6 +110,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
+    <None Include="FodyWeavers.xml" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -189,7 +190,10 @@
     </Reference>
     <Reference Include="Microsoft.Phone.Controls, Version=8.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Phone.Controls.Toolkit">
-      <HintPath>..\packages\SilverlightToolkitWP.4.2012.10.9\lib\sl3-wp\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
+      <HintPath>..\packages\SilverlightToolkitWP.4.2012.10.9\lib\sl4-windowsphone71\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="PropertyChanged">
+      <HintPath>..\packages\PropertyChanged.Fody.1.32.2.0\Lib\SL40-WP\PropertyChanged.dll</HintPath>
     </Reference>
     <Reference Include="TombstoneHelper">
       <HintPath>..\packages\WP7TombstoneHelper.2.5\lib\TombstoneHelper.dll</HintPath>
@@ -209,8 +213,6 @@
   </Target>
   -->
   <ProjectExtensions />
-  <UsingTask TaskName="NotifyPropertyWeaverMsBuildTask.WeavingTask" AssemblyFile="$(SolutionDir)Tools\NotifyPropertyWeaverMsBuildTask.dll" />
-  <Target Name="AfterCompile">
-    <NotifyPropertyWeaverMsBuildTask.WeavingTask />
-  </Target>
+  <Target Name="AfterCompile" />
+  <Import Project="$(ProjectDir)\..\Tools\Fody\Fody.targets" />
 </Project>

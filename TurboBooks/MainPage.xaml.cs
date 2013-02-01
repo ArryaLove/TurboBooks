@@ -66,5 +66,10 @@ namespace TurboBooks
             NavigationService.Navigate(new Uri("/YourLastAboutDialog;component/AboutPage.xaml", UriKind.Relative));
         }
 
+        private void LongListSelector_Tap_1(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+
+        }
+
     }
 }
