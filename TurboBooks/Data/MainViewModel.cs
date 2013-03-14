@@ -12,55 +12,52 @@ namespace TurboBooks.Data
 {
     public class MainViewModel : INotifyPropertyChanged
     {
-        public MainViewModel()
+        
+        
+        private TurboBookDataContext _DataContext;
+        public MainViewModel(string connectionString)
         {
-            AudioBooks = new ObservableCollection<AudioBookBookModel>();
+            _DataContext = new TurboBookDataContext(connectionString);
         }
 
-        public ObservableCollection<AudioBookBookModel> AudioBooks { get; private set; }
+        public ObservableCollection<Book> Books { get; private set; }
 
         public bool IsDataLoaded { get; private set; }
+        
         public void LoadData()
         {
-            if (File.Exists("Data.xml"))
-            {
-                using (var iStream = new FileStream("Data.xml", FileMode.Open, FileAccess.Read))
-                {
-                    var x = XDocument.Load(iStream);
+            var audioBooks = from Book book in _DataContext.Books select book;
 
-                    foreach (var book in x.Elements("AudioBook"))
-                    {
-                        AudioBooks.Add(new AudioBookBookModel
-                        {
-                            Name = book.Attribute("name").Value,
-                            NumberOfItems = int.Parse(book.Attribute("numberOfItems").Value)
-                        });
-                    }
-                }
-            }
+            Books = new ObservableCollection<Book>(audioBooks);
+            
             IsDataLoaded = true;
         }
 
         public void SaveData()
         {
-            var x = new XDocument();
-            var root = new XElement("Data");
-            x.Add(root);
-            var audioBooksElement = new XElement("AudioBooks");
-            root.Add(audioBooksElement);
-            foreach (var book in AudioBooks)
-            {
-                audioBooksElement.Add(new XElement("AudioBook",
-                    new XAttribute("name", book.Name),
-                    new XAttribute("numberOfItems", book.NumberOfItems)));
-            }
-            using (var oStream = new FileStream("Data.xml", FileMode.Create, FileAccess.Write))
-            {
-                x.Save(oStream);
-            }
+            _DataContext.SubmitChanges();
+        }
+
+        public void AddBook(Book book)
+        {
+            _DataContext.Books.InsertOnSubmit(book);
+
+            _DataContext.SubmitChanges();
+
+            Books.Add(book);
+        }
+
+        public void DeleteBook(Book book)
+        {
+            Books.Remove(book);
+
+            _DataContext.Books.DeleteOnSubmit(book);
+
+            _DataContext.SubmitChanges();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+        
         private void NotifyPropertyChanged(String propertyName)
         {
             PropertyChangedEventHandler handler = PropertyChanged;

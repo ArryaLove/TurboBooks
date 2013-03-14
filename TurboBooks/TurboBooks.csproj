@@ -97,6 +97,7 @@
     </Compile>
     <Compile Include="Data\AddNewPageViewModel.cs" />
     <Compile Include="Data\AudioBookBookModel.cs" />
+    <Compile Include="Data\TurboBookDataContext.cs" />
     <Compile Include="Data\MainViewModel.cs" />
     <Compile Include="Data\PlaylistViewModel.cs" />
     <Compile Include="LocalizedStrings.cs" />

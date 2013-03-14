@@ -23,7 +23,7 @@ namespace TurboBooks
         {
             get
             {
-                return viewModel ?? (viewModel = new MainViewModel());
+                return viewModel;
             }
         }
 
@@ -76,6 +76,27 @@ namespace TurboBooks
                 PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
             }
 
+            // Specify the local database connection string.
+            string DBConnectionString = "Data Source=isostore:/ToDo.sdf";
+
+            // Create the database if it does not exist.
+            using (var db = new TurboBookDataContext(DBConnectionString))
+            {
+                if (db.DatabaseExists() == false)
+                {
+                    // Create the local database.
+                    db.CreateDatabase();
+                    
+                    // Save categories to the database.
+                    db.SubmitChanges();
+                }
+            }
+
+            // Create the ViewModel object.
+            viewModel = new MainViewModel(DBConnectionString);
+
+            // Query the local database and load observable collections.
+            viewModel.LoadData();
         }
 
         // Code to execute when the application is launching (eg, from Start)

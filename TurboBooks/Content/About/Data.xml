@@ -19,7 +19,7 @@
   <!-- The AdditionalNotes attribute has no equivalent in the WMAppManifest.xml; you can only define its content here -->
   <!-- Explicitly set any of the attributes to an empty string to remove it (including its label) from the dialog -->
   <App Author="James Regan"
-       Publisher="JJs' Attic"       
+       Publisher="James Regan"       
        AdditionalNotes="Audio Book Player" />
   <Items>
     <!-- Create a MainItem entry to configure the front page -->
