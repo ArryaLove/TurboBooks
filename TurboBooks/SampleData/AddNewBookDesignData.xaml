@@ -1,0 +1,11 @@
+﻿<vm:AddNewPageViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="clr-namespace:TurboBooks.Data"
+    IsDataLoaded="True">
+    <vm:AddNewPageViewModel.Playlists>
+        <vm:PlaylistViewModel vm:PlaylistName="Brisingr" Duration="1.06:51" />
+        <vm:PlaylistViewModel vm:PlaylistName="Eldest" Duration="23:30" />
+        <vm:PlaylistViewModel vm:PlaylistName="Heat Rises" Duration="10:58" />
+    </vm:AddNewPageViewModel.Playlists>
+</vm:AddNewPageViewModel>

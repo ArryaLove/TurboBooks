@@ -16,15 +16,15 @@ namespace TurboBooks.Data
             Playlists = new ObservableCollection<PlaylistViewModel>();
         }
 
-        public ObservableCollection<PlaylistViewModel> Playlists { get; private set; }
+        public ObservableCollection<PlaylistViewModel> Playlists { get; set; }
 
-        public bool IsDataLoaded { get; private set; }
+        public bool IsDataLoaded { get; set; }
         public void LoadData()
         {
             var m = new MediaLibrary();
             foreach (var p in m.Playlists)
             {
-                this.Playlists.Add(new PlaylistViewModel { Name = p.Name, Duration = p.Duration, Playlist = p });
+                this.Playlists.Add(new PlaylistViewModel { PlaylistName = p.Name, Duration = p.Duration, Playlist = p });
             }
 
             IsDataLoaded = true;

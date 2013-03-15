@@ -10,7 +10,7 @@ namespace TurboBooks.Data
 {
     public class PlaylistViewModel : INotifyPropertyChanged
     {
-        public string Name { get; set; }
+        public string PlaylistName { get; set; }
         public TimeSpan Duration { get; set; }
         public Playlist Playlist { get; set; }
 

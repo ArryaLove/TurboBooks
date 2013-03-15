@@ -22,9 +22,9 @@ namespace TurboBooks.Data
         {
         }
 
-        public Table<Book> Books { get; set; }
+        public Table<Book> Books;
 
-        public Table<Bookmark> Bookmarks { get; set; }
+        public Table<Bookmark> Bookmarks;
     }
 
     [Table]
@@ -102,7 +102,7 @@ namespace TurboBooks.Data
         public int SongIndex { get; set; }
 
         [Column]
-        public TimeSpan Position { get; set; }
+        public int Position { get; set; }
 
         // Internal column for the associated ToDoCategory ID value
         [Column]

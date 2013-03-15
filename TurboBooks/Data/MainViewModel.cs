@@ -26,6 +26,8 @@ namespace TurboBooks.Data
         
         public void LoadData()
         {
+            
+
             var audioBooks = from Book book in _DataContext.Books select book;
 
             Books = new ObservableCollection<Book>(audioBooks);
