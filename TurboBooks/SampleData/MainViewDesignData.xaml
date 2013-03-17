@@ -1,0 +1,11 @@
+﻿<vm:MainViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="clr-namespace:TurboBooks.Data"
+    IsDataLoaded="True">
+    <vm:MainViewModel.Books>
+        <vm:Book BookName="Brisingr" BookType="SystemPlaylist" />
+        <vm:Book BookName="Eldest" BookType="SystemPlaylist" />
+        <vm:Book BookName="Heat Rises" BookType="SystemPlaylist" />
+    </vm:MainViewModel.Books>
+</vm:MainViewModel>

@@ -8,6 +8,7 @@ using Microsoft.Phone.Controls;
 using TombstoneHelper;
 using TurboBooks.Data;
 using System.Windows.Input;
+using Coding4Fun.Phone.Controls;
 
 namespace TurboBooks
 {
@@ -48,6 +49,18 @@ namespace TurboBooks
 
         private void CreateAddPlaylistCommand()
         {
+        }
+
+        private void RoundButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            var playlist = (PlaylistViewModel)((RoundButton)e.OriginalSource).CommandParameter;
+            App.ViewModel.AddBook(new Book
+            {
+                BookName = playlist.PlaylistName,
+                BookType = BookType.SystemPlaylist
+            });
+            if (NavigationService.CanGoBack)
+                NavigationService.GoBack();
         }
 
     }

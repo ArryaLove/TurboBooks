@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Media;
+using System.Windows.Input;
+using System.Windows.Navigation;
 
 namespace TurboBooks.Data
 {
@@ -13,6 +15,10 @@ namespace TurboBooks.Data
         public string PlaylistName { get; set; }
         public TimeSpan Duration { get; set; }
         public Playlist Playlist { get; set; }
+        
+        public PlaylistViewModel()
+        {
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged(String propertyName)

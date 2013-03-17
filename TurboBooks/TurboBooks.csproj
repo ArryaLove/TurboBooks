@@ -136,6 +136,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </DesignData>
+    <DesignData Include="SampleData\MainViewDesignData.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </DesignData>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

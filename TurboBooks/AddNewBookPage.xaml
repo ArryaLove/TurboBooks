@@ -26,8 +26,8 @@
                         <phone:LongListSelector.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <s4:RoundButton Margin="6,0" ImageSource="Toolkit.Content\appbar.add.png" 
-                                                     />
+                                    <s4:RoundButton Margin="6,0" ImageSource="Assets\Icons\appbar.add.png" 
+                                                CommandParameter="{Binding}" Click="RoundButton_Click_1" />
                                     <StackPanel Margin="-12,0,0,17" 
                                                 ManipulationStarted="StackPanel_ManipulationStarted_1"
                                                 ManipulationCompleted="StackPanel_ManipulationCompleted_1">

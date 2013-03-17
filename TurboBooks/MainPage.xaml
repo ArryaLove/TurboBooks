@@ -7,6 +7,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    d:DataContext="{d:DesignData SampleData/MainViewDesignData.xaml}"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -14,7 +15,7 @@
     shell:SystemTray.IsVisible="True">
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
-            <shell:ApplicationBarIconButton x:Name="AddButton" IconUri="Toolkit.Content\appbar.add.png" 
+            <shell:ApplicationBarIconButton x:Name="AddButton" IconUri="Assets\icons\appbar.add.png" 
                 Text="Add Book" Click="AddButton_Click_1" />
             <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem Text="About" x:Name="MenuItemAbout" Click="MenuItemAbout_Click_1"/>
@@ -59,8 +60,7 @@
                 <phone:LongListSelector.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Margin="0,0,0,17">
-                            
-                            <TextBlock Text="{Binding Name}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
+                            <TextBlock Text="{Binding BookName}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
                             <TextBlock Text="{Binding BookType}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
                         </StackPanel>
                     </DataTemplate>

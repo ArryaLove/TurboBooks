@@ -12,6 +12,9 @@ namespace TurboBooks.Data
 {
     public class MainViewModel : INotifyPropertyChanged
     {
+        public MainViewModel()
+        {
+        }
         
         
         private TurboBookDataContext _DataContext;
