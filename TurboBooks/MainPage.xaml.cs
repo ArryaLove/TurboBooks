@@ -68,7 +68,23 @@ namespace TurboBooks
 
         private void LongListSelector_Tap_1(object sender, System.Windows.Input.GestureEventArgs e)
         {
+           
+        }
 
+        private void TextBlock_ManipulationStarted_1(object sender, System.Windows.Input.ManipulationStartedEventArgs e)
+        {
+            ((UIElement)sender).RenderTransform = new System.Windows.Media.TranslateTransform() { X = 2, Y = 2 };
+        }
+
+        private void TextBlock_ManipulationCompleted_1(object sender, System.Windows.Input.ManipulationCompletedEventArgs e)
+        {
+            ((UIElement)sender).RenderTransform = null;
+        }
+
+        private void DeleteMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            var book = (Book)((MenuItem)sender).CommandParameter;
+            App.ViewModel.DeleteBook(book);
         }
 
     }

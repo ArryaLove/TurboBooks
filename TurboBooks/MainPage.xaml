@@ -4,7 +4,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:c4="clr-namespace:Coding4Fun.Phone.Controls;assembly=Coding4Fun.Phone.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     d:DataContext="{d:DesignData SampleData/MainViewDesignData.xaml}"
@@ -59,15 +61,23 @@
             <phone:LongListSelector Margin="0,0,-12,0" ItemsSource="{Binding Books}" Tap="LongListSelector_Tap_1">
                 <phone:LongListSelector.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Margin="0,0,0,17">
-                            <TextBlock Text="{Binding BookName}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
-                            <TextBlock Text="{Binding BookType}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                        <StackPanel Margin="0,0,0,6" FlowDirection="LeftToRight" Orientation="Horizontal">
+                            <toolkit:ContextMenuService.ContextMenu>
+                                <toolkit:ContextMenu>
+                                    <toolkit:MenuItem Header="Delete" CommandParameter="{Binding}" Click="DeleteMenuItem_Click" />
+                                    <!--<toolkit:MenuItem Header="Pin to start" CommandParameter="{Binding}" />-->
+                                </toolkit:ContextMenu>
+                            </toolkit:ContextMenuService.ContextMenu>
+                            <c4:RoundButton ImageSource="Assets/Icons/transport.play.png" />
+                            <TextBlock Text="{Binding BookName}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"
+                                       ManipulationStarted="TextBlock_ManipulationStarted_1" ManipulationCompleted="TextBlock_ManipulationCompleted_1"
+                                       />
                         </StackPanel>
                     </DataTemplate>
                 </phone:LongListSelector.ItemTemplate>
             </phone:LongListSelector>
         </Grid>
-
+        
         <!--Uncomment to see an alignment grid to help ensure your controls are
             aligned on common boundaries.  The image has a top margin of -32px to
             account for the System Tray. Set this to 0 (or remove the margin altogether)

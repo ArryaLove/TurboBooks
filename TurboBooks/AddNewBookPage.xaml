@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
-    xmlns:s4="clr-namespace:Coding4Fun.Phone.Controls;assembly=Coding4Fun.Phone.Controls"
+    xmlns:c4="clr-namespace:Coding4Fun.Phone.Controls;assembly=Coding4Fun.Phone.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
@@ -26,7 +26,7 @@
                         <phone:LongListSelector.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <s4:RoundButton Margin="6,0" ImageSource="Assets\Icons\appbar.add.png" 
+                                    <c4:RoundButton Margin="6,0" ImageSource="Assets\Icons\appbar.add.png" 
                                                 CommandParameter="{Binding}" Click="RoundButton_Click_1" />
                                     <StackPanel Margin="-12,0,0,17" 
                                                 ManipulationStarted="StackPanel_ManipulationStarted_1"

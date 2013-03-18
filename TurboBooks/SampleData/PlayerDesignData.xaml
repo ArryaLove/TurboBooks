@@ -1,0 +1,30 @@
+﻿<vm:PlayerPageViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="clr-namespace:TurboBooks.Data"
+    >
+    <vm:PlayerPageViewModel.Book>
+        <vm:Book BookName="Brisingr" />
+    </vm:PlayerPageViewModel.Book>
+    <vm:PlayerPageViewModel.Bookmarks>
+        <vm:Bookmark SongIndex="5" Position="100" />
+    </vm:PlayerPageViewModel.Bookmarks>
+    <vm:PlayerPageViewModel.Songs>
+        <vm:SongItem SongName="01-01" />
+        <vm:SongItem SongName="01-02" />
+        <vm:SongItem SongName="01-03" />
+        <vm:SongItem SongName="01-04" />
+        <vm:SongItem SongName="01-05" />
+        <vm:SongItem SongName="01-06" />
+        <vm:SongItem SongName="01-07" />
+        <vm:SongItem SongName="01-08" />
+        <vm:SongItem SongName="02-01" />
+        <vm:SongItem SongName="02-02" />
+        <vm:SongItem SongName="02-03" />
+        <vm:SongItem SongName="02-04" />
+        <vm:SongItem SongName="02-05" />
+        <vm:SongItem SongName="02-06" />
+        <vm:SongItem SongName="02-07" />
+        <vm:SongItem SongName="02-08" />
+    </vm:PlayerPageViewModel.Songs>
+</vm:PlayerPageViewModel>
